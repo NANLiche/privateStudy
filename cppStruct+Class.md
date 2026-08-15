@@ -124,6 +124,7 @@ animal->Speak(); // Dog::Speak()
 일반적인 컴파일러 구현에서는 가상 함수를 사용하기 위해 vtable과 vptr을 사용할 수 있다.
 
 vtable → 가상 함수들의 주소를 가지고 있는 테이블
+
 vptr → 객체에서 vtable을 가리키는 포인터
 
 64비트 환경에서는 vptr이 일반적으로 8바이트
