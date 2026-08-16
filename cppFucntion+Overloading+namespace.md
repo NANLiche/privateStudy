@@ -26,17 +26,13 @@
 
 ## 함수 오버로딩은 왜 필요한가?
 
-```cpp
 int AddInt(int a, int b)
 int AddDouble(double a, double b)
-```
 
 이런 함수들을 만들어 일일히 구분하여 사용할 필요없이
 
-```cpp
 int Add(int a, int b)
 int Add(double a, double b)
-```
 
 이런 식으로 선언하게 되면 Add함수에 들어가는 매개변수의 자료형에 따라
 각각 타입에 맞는 함수가 호출되게 된다.
@@ -58,9 +54,7 @@ B::func();
 
 흔히 사용되는
 
-```cpp
 using namespace std;
-```
 
 에서 std도 이러한 네임스페이스의 일종이라고 할수있다.
 
@@ -82,35 +76,33 @@ cpu가 코드영역에서 기계어로 변환된 상태로 저장되어있는 a+
 
 ## 포인터, 참조, 배열, 함수가 서로 어떻게 연결되는지 설명해보자.
 
-```cpp
-#include <iostream>
-using namespace std;
+    #include <iostream>
+    using namespace std;
 
-// 1. [함수 + 참조] : 참조를 이용해 원본 배열 요소를 수정하는 함수
-void doubleElement(int& element) {
-    element *= 2; // 참조를 통해 원본 값 직접 수정
-}
-
-int main() {
-    // 2. [배열] : 메모리에 연속된 공간 확보
-    int myArr[3] = {10, 20, 30};
-
-    // 3. [배열 + 포인터] : 배열 이름은 첫 번째 요소의 주소
-    int* ptr = myArr; // ptr은 myArr[0]의 주소를 가리킴
-
-    // 4. [포인터 연산] : 포인터를 이동하며 함수 호출
-    for (int i = 0; i < 3; i++) {
-        // *(ptr + i)는 배열의 각 요소 주소에 접근하는 것
-        doubleElement(*(ptr + i)); 
+    // 1. [함수 + 참조] : 참조를 이용해 원본 배열 요소를 수정하는 함수
+    void doubleElement(int& element) {
+        element *= 2; // 참조를 통해 원본 값 직접 수정
     }
 
-    // 5. [함수 포인터] : 함수 자체의 주소를 저장
-    void (*funcPtr)(int&) = doubleElement;
+    int main() {
+        // 2. [배열] : 메모리에 연속된 공간 확보
+        int myArr[3] = {10, 20, 30};
 
-    cout << myArr[0]; // 출력 결과: 20 (원본이 수정됨)
-    return 0;
-}
-```
+        // 3. [배열 + 포인터] : 배열 이름은 첫 번째 요소의 주소
+        int* ptr = myArr; // ptr은 myArr[0]의 주소를 가리킴
+
+        // 4. [포인터 연산] : 포인터를 이동하며 함수 호출
+        for (int i = 0; i < 3; i++) {
+            // *(ptr + i)는 배열의 각 요소 주소에 접근하는 것
+            doubleElement(*(ptr + i)); 
+        }
+
+        // 5. [함수 포인터] : 함수 자체의 주소를 저장
+        void (*funcPtr)(int&) = doubleElement;
+
+        cout << myArr[0]; // 출력 결과: 20 (원본이 수정됨)
+        return 0;
+    }
 
 gpt햄한테 긁어왔는데
 이게 메모리에 코드, 데이터, 스택, 힙 중 어디에 선언되고
