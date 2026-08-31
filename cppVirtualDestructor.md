@@ -1,4 +1,4 @@
-# 📝 8/22 — Virtual Destructor (가상 소멸자)
+# 📝 8/31 — Virtual Destructor (가상 소멸자)
 
 ### **Q1. virtual destructor란 무엇인가?**
 > **A.** `virtual` 키워드를 붙여 선언한 소멸자
