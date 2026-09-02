@@ -1,4 +1,4 @@
-### 8/23 — abstract class + 총복습
+### 09/02 — abstract class + 총복습
 
 #### Abstract class
 
