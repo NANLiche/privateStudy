@@ -36,3 +36,13 @@
 두 객체가 서로를 `shared_ptr`로 가리키면 **순환 참조(Circular Reference)**가 발생하여 참조 카운트가 영원히 0이 되지 않을 수 있다.
 
 이 경우 객체가 삭제되지 않아 **메모리 누수**가 발생할 수 있다.
+
+## 사용법
+
+```
+std::shared_ptr<int> ptr = std::make_shared<int>(10);
+
+std::shared_ptr<int> ptr2 = ptr;
+```
+
+ptr.use_count() = 참조카운트 수 반환 // 위 코드에서는 2
