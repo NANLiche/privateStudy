@@ -12,7 +12,7 @@
 
 ### Lambda의 기본 문법은 어떻게 생겼는가?
 
-[capture](parameters) -> return_type { body }
+\[capture\] \(parameters\) -> return_type { body }
 
 auto add = [](int a, int b) -> int { return a + b; };
 
